@@ -1,5 +1,6 @@
 #list part 1
 
+'''
 #sum of element present in list
 l=eval(input('enter element of list : '))
 sum=0
@@ -161,3 +162,4 @@ for x in l:
         count+=1
 print(count)
 
+'''

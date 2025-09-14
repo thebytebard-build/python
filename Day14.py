@@ -290,13 +290,15 @@ s=int(input('enter start index : '))
 e=int(input('enter start index : '))
 l1=l[s:e+1]
 print(l1)
-'''
 
 #print form starting n number in reverse order
 l=[1,2,3,4,5,6]
 n=int(input('enter the index : '))
 l1=l[n-1::-1]
 print(l1)
+'''
+
+
 
 
 
