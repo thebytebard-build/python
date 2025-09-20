@@ -15,7 +15,14 @@ for x in s:
 print(s1,s2)
 
 
-
+#you have a set of five players name and now create all possible players pairs(two players at atime which means pairs of twomplayers)
+s1={'rahul','ahaan','tom','radha','rihana'}
+s=set()
+for i in s1:
+    for j in s1:
+        if i<j:
+         s.add((i,j))
+print(s)
 
 
 #you have two list one list contain names who wears black hat and another list who wears red shoes now tell how many many person wears both
@@ -36,11 +43,3 @@ print(s)
 '''
 
 
-#you have a set of five players name and now create all possible players pairs(two players at atime which means pairs of twomplayers)
-s1={'rahul','ahaan','tom','radha','rihana'}
-s=set()
-for i in s1:
-    for j in s1:
-        if i<j:
-         s.add((i,j))
-print(s)
