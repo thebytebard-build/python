@@ -97,4 +97,119 @@ def factor(n):
         if n%x==0:
             print(x)
 
-factor(69)
+#lcm of two number
+def lcm(a,b):
+    l=[]
+    i=2
+    while a!=1 or b!=1:
+        while i<=max(a,b):
+            if (a!=1 and a%i==0) or (b!=1 and b%i==0):
+                if (a!=1 and a%i==0):
+                    a=a//i
+                if (b!=1 and b%i==0):
+                    b=b//i
+                l.append(i)     
+            else:
+                i+=1    
+    m=1
+    for x in l:
+        m*=x
+    return m
+            
+#count words of string
+def word_string(s):
+    s1=s.rstrip()
+    s2=s1.lstrip()
+    return s2.count(' ')+1
+
+#create list of between two prime number
+def between_p(s,e):
+    l=[]
+    for n in range(s+1,e):
+     for x in range(2,n):
+        if n%x==0:
+            break
+     else:
+         if n!=1:
+          l.append(n)
+    return l
+
+#from a string create a list then make dictionary the first letter of word would be the key and all word starting from same letter would be the values
+def dict_from_list(s):
+    l=s.split()
+    l2=[]
+    d={}
+    for x in l:
+        if x[0] not in d:
+            d[x[0]]=[x]
+        else:
+            d[x[0]].append(x)
+    print(d)
+
+#find common factor of two given number
+def common_factore(a,b):
+    t=[]
+    for x in range(2,min(a,b)+1):
+        if a%x ==0 and b%x==0:
+            t.append(x)
+    tt=tuple(t)
+    print(tt)
+
+#remove duplicate from list
+def remove_d(l):
+    s=set(l)
+    l=list(s)
+    return l
+
+# count frequency of each element in list and store their element as key and frequency as value in dict
+def fre(l):
+    s=set(l)
+    d={}
+    for x in s:
+        d[x]=l.count(x)
+    return d
+
+#find number in a given text then store in list and return list
+def find_n(s):
+    l=[]
+    for x in s:
+        if x.isdigit():
+            l.append(x)
+    return l
+
+# find largest sorted  subsequence
+def find_largest(l):
+    l1=[]
+    l2=[]
+    i=0
+    while i<len(l)-1:
+        if l[i]<=l[i+1]:
+            if not l1:
+              l1.append(l[i])
+            l1.append(l[i+1])
+        else:
+            if l1:
+             l2.append(l1.copy())
+             l1.clear()
+        i+=1
+    if l1:
+        l2.append(l1)
+    i=0
+    ll=[]
+    for x in l2:
+        if i<len(x):
+            i=len(x)
+            ll=x.copy()
+    print(ll)
+        
+
+# find if two list have same element in any order
+def find_same(l1,l2):
+    for x in l1:
+        if x not in l2:
+            return False
+    return True
+
+
+
+dict_from_list("radha rani badi pyari badi syani")
