@@ -1,4 +1,4 @@
-#lambda and variable length argument and map,reduce,filter
+#lambda and variable and map,reduce,filter , length argument
 
 #lambda
 
@@ -45,3 +45,49 @@ h=lambda x,y: x if y%x==0 else h(y%x,y)
 l=[8,6,24]
 hcf=reduce(h,l)
 print(hcf)
+
+#variable length argument
+
+#calculate average and take vaiable length argumrnt
+def av(*n):
+    sum=0
+    for i in n:
+        sum+=i
+    return sum/len(n)
+
+#find greatest
+def gretest(*n):
+    return max(n)
+
+#filter out odd and even and store both of them in list then these two list of even and odd in tuple
+def t(*n):
+    l1=list(filter(lambda x: True if x%2==0 else False,n))
+    l2=list(filter(lambda x: True if x%2!=0 else False,n))
+    t=(l1,l2)
+    return t
+
+#return one string or multiple string with max length
+def st(*n):
+    t=[]
+    count=0
+    for x in n:
+        if count<len(x):
+            t.clear()
+            t.append(x)
+            count=len(x)
+        elif count==len(x):
+            t.append(x)
+    return t
+
+#filter out prime number from given variable length argument
+def p(*n):
+    l=[]
+    for x in n:
+        if x < 2:           
+            continue
+        for i in range(2,x):
+            if x%i==0:
+                break
+        else:
+            l.append(x)
+    return l
