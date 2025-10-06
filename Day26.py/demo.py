@@ -1,5 +1,6 @@
 #this file is for __name__ checking and for future import in check.py
 
+#run module_check function if you want to check if module main is main or not and then delete
 def greet():
     print('hello from demo model ')
 
