@@ -1,5 +1,5 @@
 # recursion questions part 1
-
+print('roshani ........')
 #print first n natural number
 def nn(n):
     if n>1:
@@ -105,4 +105,29 @@ def fact(n):
         return n*fact(n-1)
     return 1
 
-#
+#print the binary of a guven number
+def bina(n):
+    if n>1:
+        bina(n//2)
+    print(n%2,end='')
+
+#print octal of a given decimal number
+def octa(n):
+    if n>1:
+        octa(n//8)
+    print(n%8,end='')
+
+#print the sum of first n prime number
+def sum_p(n):
+   if n<2:
+       return 0
+   elif n==2:
+       return 2
+   else :
+       for j in range(2,n):
+           if n%j==0:
+               break
+       else:
+           return n+sum_p(n-1)
+       return sum_p(n-1)
+
