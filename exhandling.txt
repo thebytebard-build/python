@@ -1,0 +1,120 @@
+Errors in Programming Languages
+│
+├── 1. Syntax Errors
+│   └── Occur due to invalid syntax
+│       (e.g., missing colon, wrong indentation)
+│
+└── 2. Run-time Errors (Exceptions)
+    ├── Also called "exceptions"
+    ├── Occur during program execution
+    ├── Caused by invalid end-user input or logical mistakes
+    ├── Exception handling applies only to run-time errors, not syntax errors
+    │
+    └── Exceptions in Detail
+        │
+        ├── Definition:
+        │   └── Unwanted, unexpected, or abnormal events that disrupt normal program flow.
+        │
+        ├── Objective:
+        │   └── Ensure *graceful termination* of the program instead of abrupt stopping.
+        │
+        ├── Meaning of Exception Handling:
+        │   └── A way to handle abnormal conditions so that the rest of the program can continue normally.
+        │
+        ├── Default Exception Handling in Python:
+        │   ├── Every exception in Python is an **object**.
+        │   ├── Each exception type has a corresponding **class**.
+        │   ├── When an exception occurs:
+        │   │   ├── Python Virtual Machine (PVM) creates the corresponding exception object.
+        │   │   └── PVM checks whether appropriate handling code exists.
+        │   ├── If no handling code is found:
+        │   │   └── PVM prints an error message to the console and terminates the program.
+        │   └── If handled properly:
+        │       └── The rest of the program continues executing normally.
+        │
+        ├── Customized Exception Handling (Using try-except)
+        │   │
+        │   ├── Importance:
+        │   │   └── It is *highly recommended* to handle exceptions using `try-except` blocks.
+        │   │
+        │   ├── Key Concepts:
+        │   │   ├── **Risky Code** → The code that may raise an exception.
+        │   │   ├── **Try Block** → Contains risky code.
+        │   │   ├── **Except Block** → Contains handling code for the exception.
+        │   │
+        │   ├── Multiple Except Blocks:
+        │   │   ├── A single `try` block can have multiple `except` blocks.
+        │   │   ├── The order of `except` blocks **matters** — Python checks from top to bottom.
+        │   │   ├── If unsure, use the **base Exception** class as the last `except`.
+        │   │   ├── A single `except` block can handle multiple exception types:
+        │   │   │   ```python
+        │   │   │   except (ZeroDivisionError, ValueError) as e:
+        │   │   │       print("Please provide a valid number:", e)
+        │   │   │   ```
+        │   │   └── Default `except` block:
+        │   │       └── `except:` can be used to catch **any exception**.
+        │   │
+        │   ├── Finally Block:
+        │   │   ├── Purpose: Maintain clean-up code (files, network connections, resources).
+        │   │   ├── **Always executes** except in the case of `os._exit()`.
+        │   │   ├── Not recommended to put clean-up inside `try` or `except` blocks.
+        │   │   └── There can be **only one `finally` block** per `try`.
+        │   │
+        │   ├── Else Block:
+        │   │   ├── Runs only if **no exception occurs** in the `try` block.
+        │   │   ├── Requires at least one `except` block to be defined.
+        │   │   └── Syntax:
+        │   │       ```python
+        │   │       try:
+        │   │           risky_code()
+        │   │       except SomeException:
+        │   │           handle_exception()
+        │   │       else:
+        │   │           code_if_no_exception()
+        │   │       finally:
+        │   │           cleanup_code()
+        │   │       ```
+        │   │
+        │   ├── Rules/Constraints:
+        │   │   ├── `finally` → requires a `try` block; only **one** `finally`.
+        │   │   ├── `except` → requires a `try` block; can have **multiple** except blocks.
+        │   │   ├── `else` → requires a `try` and at least one `except`; runs only if no exception occurs.
+        │   │   └── `try` → must have at least one `except` or `finally`.
+        │   │
+        │   └── Nested Try-Except-Finally:
+        │       └── `try` blocks can be nested; inner blocks follow same rules as outer blocks.
+        │
+        ├── Types of Exceptions
+        │   ├── 1. Predefined Exceptions
+        │   │   ├── Provided by Python
+        │   │   ├── Example: `ZeroDivisionError`, `ValueError`, `IndexError`, `TypeError`, etc.
+        │   │   └── Predefined Exception Class Names are available
+        │   │
+        │   ├── 2. User-Defined Exceptions
+        │   │   ├── Defined by the programmer
+        │   │   ├── Example: `InsufficientFundException`, `YoungException`, `OldException`
+        │   │   ├── Can be traced and raised manually using `raise` keyword
+        │   │   └── Raised keyword is suitable for customized exceptions
+        │   │
+        │   └── 3. Customized Exceptions
+        │       ├── Extend existing Python exception classes (directly or indirectly)
+        │       ├── Can include additional attributes and messages
+        │       ├── Useful in software-defined or gaming-specific logic
+        │       ├── Recommended to use `raise` for custom exceptions
+        │       └── Not required to `raise` predefined exceptions
+        │
+        └── Exception Hierarchy:
+            └── BaseException
+                ├── SystemExit
+                ├── KeyboardInterrupt
+                ├── GeneratorExit
+                └── Exception
+                    ├── ArithmeticError
+                    ├── LookupError
+                    ├── ImportError
+                    ├── RuntimeError
+                    ├── OSError
+                    ├── ValueError
+                    ├── TypeError
+                    ├── SyntaxError
+                    └── Warning
